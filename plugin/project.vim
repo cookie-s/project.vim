@@ -1300,7 +1300,7 @@ if !exists("*<SID>CreateProjectAuto()") "<<<
         endif
 
         let line = line('.')
-        call <SID>DoEntryFromDir(1, line, path, path, path, '.', '*', '*', foldlevel(line), 0)
+        call <SID>DoEntryFromDir(0, line, path, path, path, '.', '**/*', '**/*', foldlevel(line), 0)
     endfunction
 endif ">>>
 
