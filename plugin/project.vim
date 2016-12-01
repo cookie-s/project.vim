@@ -1288,6 +1288,22 @@ if exists('g:proj_flags') && (match(g:proj_flags, '\Cg') != -1)
     endif
 endif
 
+""" http://d.hatena.ne.jp/alpha_neet/20111017/1318853524
+" CreateProjectAuto
+if !exists("*<SID>CreateProjectAuto()") "<<<
+    function! s:CreateProjectAuto()
+        let path = inputdialog('Enter the Absolute Path: ', getcwd())
+        if !isdirectory(glob(path))
+            echo path . 'is not a valid directory.'
+            return
+        endif
+
+        let line = line('.')
+        call <SID>DoEntryFromDir(1, line, path, path, path, '.', '*', '*', foldlevel(line), 0)
+    endfunction
+endif ">>>
+nnoremap <script> <Plug>CreateProjectAuto :call <SID>CreateProjectAuto()<CR>
+
 finish
 
 " vim600: set foldmethod=marker foldmarker=<<<,>>> foldlevel=1:
