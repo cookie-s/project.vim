@@ -1218,6 +1218,7 @@ function! s:Project(filename) " <<<
         nnoremap <buffer>          <LocalLeader>F0 \|:call <SID>ListSpawn("_fold")<CR>
         nnoremap <buffer> <silent> <LocalLeader>c :call <SID>CreateEntriesFromDir(0)<CR>
         nnoremap <buffer> <silent> <LocalLeader>C :call <SID>CreateEntriesFromDir(1)<CR>
+        nnoremap <buffer> <silent> <LocalLeader>A :call <SID>CreateProjectAuto()<CR>
         nnoremap <buffer> <silent> <LocalLeader>r :call <SID>RefreshEntriesFromDir(0)<CR>
         nnoremap <buffer> <silent> <LocalLeader>R :call <SID>RefreshEntriesFromDir(1)<CR>
         " For Windows users: same as \R
@@ -1302,7 +1303,6 @@ if !exists("*<SID>CreateProjectAuto()") "<<<
         call <SID>DoEntryFromDir(1, line, path, path, path, '.', '*', '*', foldlevel(line), 0)
     endfunction
 endif ">>>
-nnoremap <script> <Plug>CreateProjectAuto :call <SID>CreateProjectAuto()<CR>
 
 finish
 
